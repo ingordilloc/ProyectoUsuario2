@@ -38,7 +38,7 @@ $usuario = new UsuarioController();
             <div class="row">
                 <div class="col-2"><label>Crear Contraseña</label>
                 </div>
-                <div class="col-10"><input type="text" name="pasword" class="form-control"></div>
+                <div class="col-10"><input type="password" name="password" class="form-control"></div>
             </div>
         </div>
 
@@ -52,7 +52,7 @@ $usuario = new UsuarioController();
      
 <?php 
 $resultado=$usuario->crearUsuarioEstudiante();
-if($resultado == "ERROR DE USUARIO"){
+if($resultado === false){
     echo "<div class='alert alert-success mt-3' role=alert'>
     Error de los datos</div>";
 }

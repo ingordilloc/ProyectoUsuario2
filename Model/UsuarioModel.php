@@ -10,7 +10,6 @@ class UsuarioModel{
     public static function login($datos){
         $stmt = ConexionModel::conectar()->prepare("SELECT * FROM usuario where usuario = :usuario");
         $stmt->bindParam(":usuario", $datos['usuario'], \PDO::PARAM_STR);
-        
         $stmt->execute();//Nos dira si hay un resultado que coincida
         return $stmt->fetch();//Devolviendo la respuesta
 
@@ -22,11 +21,13 @@ class UsuarioModel{
             $stmt->bindParam(":nombres", $datos['nombres'], \PDO::PARAM_STR);
             $stmt->bindParam(":apellidos", $datos['apellidos'], \PDO::PARAM_STR);
             $stmt->bindParam(":usuario", $datos['usuario'], \PDO::PARAM_STR);
-            $stmt->bindParam(":password", $datos['pasword'], \PDO::PARAM_STR);
+            $stmt->bindParam(":password", $datos['password'], \PDO::PARAM_STR);
             $stmt->bindParam(":rol", $datos['rol'], \PDO::PARAM_STR);
             return $stmt->execute() ? true: false;//Ejecucion de la consulta.
-        }catch( \Throwable $th ){
-            return false;
+        }
+        catch( \Throwable $th ){
+        echo $th;
+            //    return false;
         }
     }
 

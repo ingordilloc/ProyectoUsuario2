@@ -19,7 +19,7 @@
         <a class="nav-link" href="index.php?action=nosotros">Nosotros</a>
         <a class="nav-link" href="index.php?action=contacto">Contacto</a>
         <?php
-        if (!empty($_SESSION['id']) && (!empty($_SESSION['rol']))   )  {
+        if (!empty($_SESSION['id']) && (!empty($_SESSION['rol'])))  {
           //Mostrar todas las opciones disponibles
         ?>
           <a class="nav-link" href="index.php?action=inscripcion">Nueva Inscripcion</a>
